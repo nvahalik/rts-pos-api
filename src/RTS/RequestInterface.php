@@ -1,6 +1,6 @@
 <?php
 
-namespace Nvahalik\Rts\Api\RTS;
+namespace nvahalik\Rts\Api\RTS;
 
 interface RequestInterface  {
   /**

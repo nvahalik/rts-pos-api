@@ -1,14 +1,14 @@
 <?php
 
-namespace Nvahalik\Rts\Api\RTS\Giftcard;
+namespace nvahalik\Rts\Api\RTS\Giftcard;
 
-use Nvahalik\Rts\Api\RTS\Request;
+use nvahalik\Rts\Api\RTS\Request;
 
 class InfoRequest extends Request {
   /**
    * @var string
    */
-  public $responseClass = 'RTS_GiftInformationResponse';
+  public $responseClass = 'nvahalik\\Rts\\Api\\RTS\\InfoResponse';
 
   /**
    * @param string $gc

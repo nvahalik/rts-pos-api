@@ -1,8 +1,8 @@
 <?php
 
-namespace Nvahalik\Rts\Api\RTS;
+namespace nvahalik\Rts\Api\RTS;
 
-use Nvahalik\Rts\Api\RTS as RTS;
+use nvahalik\Rts\Api\RTS as RTS;
 
 /**
  * Class Giftcard
@@ -17,7 +17,9 @@ class Giftcard {
   /**
    *
    */
-  public function purchase();
+  public function purchase() {
+
+  }
 
   /**
    * Grabs information about a gift card.
