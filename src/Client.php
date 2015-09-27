@@ -92,12 +92,12 @@ class Client {
 
     $str = curl_exec($curl);
 
-    $rc = $this->_request->getResponseClass();
+    $rc = $request->getResponseClass();
+
     if (!empty($str) && !empty($rc) && class_exists($rc)) {
       return new $rc($str);
     } else {
       throw new Exception('Invalid response returned.');
     }
   }
-
 }

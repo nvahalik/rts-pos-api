@@ -24,7 +24,11 @@ class Request implements RequestInterface {
     $pathParts = explode('/', $path);
     $part = $this->xml;
     while ($thisOne = array_shift($pathParts)) {
-      $part = $part->addChild($thisOne, count($pathParts)==0 ?: $value);
+      if (isset($part->{$thisOne})) {
+        $part = $part->{$thisOne};
+        continue;
+      }
+      $part = $part->addChild($thisOne, count($pathParts) != 0 ? null : $value);
     }
   }
 

@@ -4,28 +4,30 @@ namespace nvahalik\Rts\Api\RTS\Giftcard;
 
 use nvahalik\Rts\Api\RTS\Request;
 
+/**
+ * Class InfoRequest
+ * @package nvahalik\Rts\Api\RTS\Giftcard
+ */
 class InfoRequest extends Request {
   /**
    * @var string
    */
-  public $responseClass = 'nvahalik\\Rts\\Api\\RTS\\InfoResponse';
+  public $responseClass = 'nvahalik\\Rts\\Api\\RTS\\Giftcard\\InfoResponse';
 
   /**
-   * @param string $gc
+   * @var string
+   *  The gift card passed into the request.
    */
-  public function __construct($gc = '') {
+  public $gc = '';
+
+  /**
+   * @param string $giftcard
+   */
+  public function __construct($giftcard = '') {
     parent::__construct();
+    $this->gc = $giftcard;
     $this->xml->addChild('Command', 'GiftInformation');
-    return $this;
-  }
-
-  /**
-   * @param $gc
-   * @return $this
-   */
-  public function setGiftCard($gc) {
-    $this->gc = $gc;
-    $this->addSimplePath('Data/Packet/Giftcards/Giftcard', $gc);
+    $this->addSimplePath('Data/Packet/GiftCards/GiftCard', $giftcard);
     return $this;
   }
 }

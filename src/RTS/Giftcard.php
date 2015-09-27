@@ -28,6 +28,6 @@ class Giftcard {
    */
   public function get($giftcard) {
     $request = new RTS\Giftcard\InfoRequest($giftcard);
-    $this->parent->call($request);
+    return $this->parent->call($request);
   }
 }
