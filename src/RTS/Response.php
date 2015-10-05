@@ -23,6 +23,7 @@ class Response {
 
   /**
    * @var array
+   *  Custom Xpath maps for variables.
    */
   protected $_customMapping = array();
 
@@ -30,11 +31,15 @@ class Response {
    * @param string $xml
    */
   public function __construct($xml = '') {
+    $this->_superMap = array_merge($this->_mapping, $this->_customMapping);
+
     if (!empty($xml)) {
       $this->setXml($xml);
     }
 
-    $this->_superMap = array_merge($this->_mapping, $this->_customMapping);
+    if ($this->hasError()) {
+      throw new \Exception($this->error_text, $this->code);
+    }
 
     return $this;
   }
