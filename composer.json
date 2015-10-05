@@ -1,5 +1,5 @@
 {
-  "name": "nvahalik/rtsapi",
+  "name": "nvahalik/rts-pos-api",
   "type": "library",
   "version": "dev",
   "description": "API client library for Ready Theatre Systems POS solution",
