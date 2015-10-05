@@ -3,6 +3,7 @@
 namespace nvahalik\Rts\Api;
 
 use nvahalik\Rts\Api\RTS\RequestInterface;
+use nvahalik\Rts\Api\RTS\Response;
 
 /**
  * Implements the basic functions to access the RTS API.
@@ -73,7 +74,7 @@ class Client {
 
   /**
    * @param $request RequestInterface The request to process.
-   * @return mixed Response class.
+   * @return Response
    * @throws \Exception
    */
   public function call(RequestInterface $request) {
@@ -97,7 +98,7 @@ class Client {
     if (!empty($str) && !empty($rc) && class_exists($rc)) {
       return new $rc($str);
     } else {
-      throw new Exception('Invalid response returned.');
+      throw new \Exception('Invalid response returned: ' . $str);
     }
   }
 }
