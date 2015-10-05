@@ -13,11 +13,13 @@ class PurchaseRequest extends Request {
   /**
    * @param string $giftcard
    */
-  public function __construct($amount, $creditCardNumber, $ccvCode, $expiration, $name, $street, $postal) {
+  public function __construct($cardAmount, $creditCardNumber, $ccvCode, $expiration, $name, $street, $postal, $totalAmount = null) {
     parent::__construct();
-    $this->amount = $amount;
+    if ($totalAmount === null) {
+      $totalAmount = $cardAmount;
+    }
     $this->xml->addChild('Command', 'Buy');
-    $this->addSimplePath('Data/Packet/PurchaseGifts/PurchaseGift/Amount', $amount);
+    $this->addSimplePath('Data/Packet/PurchaseGifts/PurchaseGift/Amount', $cardAmount);
     $this->addSimplePath('Data/Packet/Payments/Payment/Type', 'CreditCard');
     $this->addSimplePath('Data/Packet/Payments/Payment/Number', $creditCardNumber);
     $this->addSimplePath('Data/Packet/Payments/Payment/CID', $ccvCode);
@@ -25,7 +27,7 @@ class PurchaseRequest extends Request {
     $this->addSimplePath('Data/Packet/Payments/Payment/AvsStreet', $street);
     $this->addSimplePath('Data/Packet/Payments/Payment/AvsPostal', $postal);
     $this->addSimplePath('Data/Packet/Payments/Payment/NameOnCard', $name);
-    $this->addSimplePath('Data/Packet/Payments/Payment/ChargeAmount', $amount);
+    $this->addSimplePath('Data/Packet/Payments/Payment/ChargeAmount', $totalAmount);
     return $this;
   }
 
