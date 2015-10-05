@@ -47,6 +47,11 @@ class Client {
   public function __construct($username, $password, $host = '', $port = 2235) {
     $this->_username = $username;
     $this->_password = $password;
+
+    if (!preg_match("/\\d+.formovietickets.com/uim", $host)) {
+      throw new \InvalidArgumentException('Host should be in format <id>.formovietickets.com');
+    }
+
     $this->host = $host;
     $this->port = $port;
 
@@ -98,7 +103,7 @@ class Client {
     if (!empty($str) && !empty($rc) && class_exists($rc)) {
       return new $rc($str);
     } else {
-      throw new \Exception('Invalid response returned: ' . $str);
+      throw new \Exception('cURL Error: ' . curl_error($curl));
     }
   }
 }
