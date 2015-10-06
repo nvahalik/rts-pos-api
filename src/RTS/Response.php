@@ -92,4 +92,8 @@ class Response {
   public function __toString() {
     return $this->_xml->asXML();
   }
+
+  public function asString() {
+    return $this->__toString();
+  }
 }

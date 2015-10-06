@@ -31,7 +31,13 @@ class PurchaseRequest extends Request {
     return $this;
   }
 
+  public function addFee($fee) {
+    $this->addSimplePath('Data/Packet/Fees/TransactionFee', $fee);
+    return $this;
+  }
+
   public function addToGiftCard($giftcard) {
     $this->addSimplePath('Data/Packet/PurchaseGifts/PurchaseGift/GiftCard', $giftcard);
+    return $this;
   }
 }
