@@ -2,6 +2,10 @@
 
 namespace nvahalik\Rts\Api;
 
+use nvahalik\Rts\Api\RTS\Giftcard\InfoRequest;
+use nvahalik\Rts\Api\RTS\Giftcard\InfoResponse;
+use nvahalik\Rts\Api\RTS\Giftcard\PurchaseRequest;
+use nvahalik\Rts\Api\RTS\Giftcard\PurchaseResponse;
 use nvahalik\Rts\Api\RTS\RequestInterface;
 use nvahalik\Rts\Api\RTS\Response;
 
@@ -105,5 +109,23 @@ class Client {
     } else {
       throw new \Exception('cURL Error: ' . curl_error($curl));
     }
+  }
+
+  /**
+   * @param InfoRequest $request
+   * @return InfoResponse
+   * @throws \Exception
+   */
+  public function giftCardInfo(InfoRequest $request) {
+    return $this->call($request);
+  }
+
+  /**
+   * @param PurchaseRequest $request
+   * @return PurchaseResponse
+   * @throws \Exception
+   */
+  public function giftCardPurchase(PurchaseRequest $request) {
+    return $this->call($request);
   }
 }

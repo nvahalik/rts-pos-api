@@ -4,6 +4,10 @@ namespace nvahalik\Rts\Api\RTS\Giftcard;
 
 use nvahalik\Rts\Api\RTS\Request;
 
+/**
+ * Class PurchaseRequest
+ * @package nvahalik\Rts\Api\RTS\Giftcard
+ */
 class PurchaseRequest extends Request {
   /**
    * @var string
@@ -11,7 +15,15 @@ class PurchaseRequest extends Request {
   public $responseClass = 'nvahalik\\Rts\\Api\\RTS\\Giftcard\\PurchaseResponse';
 
   /**
-   * @param string $giftcard
+   * Constructor method.
+   * @param $cardAmount
+   * @param $creditCardNumber
+   * @param $ccvCode
+   * @param $expiration
+   * @param $name
+   * @param $street
+   * @param $postal
+   * @param $totalAmount (defaults to the $cardAmount);
    */
   public function __construct($cardAmount, $creditCardNumber, $ccvCode, $expiration, $name, $street, $postal, $totalAmount = null) {
     parent::__construct();
@@ -31,11 +43,19 @@ class PurchaseRequest extends Request {
     return $this;
   }
 
+  /**
+   * @param $fee
+   * @return $this
+   */
   public function addFee($fee) {
     $this->addSimplePath('Data/Packet/Fees/TransactionFee', $fee);
     return $this;
   }
 
+  /**
+   * @param $giftcard
+   * @return $this
+   */
   public function addToGiftCard($giftcard) {
     $this->addSimplePath('Data/Packet/PurchaseGifts/PurchaseGift/GiftCard', $giftcard);
     return $this;

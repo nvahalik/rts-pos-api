@@ -19,29 +19,18 @@ class InfoResponse extends Response {
   ];
 
   /**
-   * @var float
-   *   Balance remaining on the card.
+   * Return the balance remaining on a card.
+   * @return float
    */
-  public $balance;
-  /**
-   * @var boolean
-   *   True if the card is registered, false if not.
-   */
-  public $registered;
-
+  public function balance() {
+    return $this->balance;
+  }
 
   /**
-   * Implement getter magic function.
-   * @param $key
-   * @return mixed
+   * Return true if the card is registered.
+   * @return boolean
    */
-  public function __get($key) {
-    $value = parent::__get($key);
-
-    if ($value == 'registered') {
-      return boolval($value);
-    }
-
-    return $value;
+  public function registered() {
+    return boolval($this->registered);
   }
 }

@@ -2,6 +2,10 @@
 
 namespace nvahalik\Rts\Api\RTS;
 
+/**
+ * Class Response
+ * @package nvahalik\Rts\Api\RTS
+ */
 class Response {
   /**
    * @var
@@ -80,19 +84,22 @@ class Response {
   }
 
   /**
-   * @return null
+   * @return string
    */
   public function getError() {
     return $this->__get('error_text');
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function __toString() {
     return $this->_xml->asXML();
   }
 
+  /**
+   * @return string
+   */
   public function asString() {
     return $this->__toString();
   }
