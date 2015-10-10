@@ -1,4 +1,11 @@
 <?php
+/**
+ * Gift card information request class
+ *
+ * @author     Nick Vahalik <nick@nickvahalik.com>
+ * @copyright  2015 Nicholas Vahalik
+ * @license    http://www.gnu.org/licenses/gpl.html
+ */
 
 namespace nvahalik\Rts\Api\RTS\Giftcard;
 

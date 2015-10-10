@@ -1,4 +1,11 @@
 <?php
+/**
+ * Basic response class. Xpath querying of returned XML.
+ *
+ * @author     Nick Vahalik <nick@nickvahalik.com>
+ * @copyright  2015 Nicholas Vahalik
+ * @license    http://www.gnu.org/licenses/gpl.html
+ */
 
 namespace nvahalik\Rts\Api\RTS;
 
